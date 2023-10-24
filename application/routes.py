@@ -1,4 +1,4 @@
-from application import app
+from application import app, db
 from flask import render_template
 
 
@@ -23,3 +23,13 @@ def games():
     Route for the games page.
     """
     return render_template('games.html')
+
+@app.route('/users')
+def users():
+    """
+    Route for the users page.
+    """
+
+    user_list = db.session.execute(db.select(User).order_by(User.id)).scalars().all()
+
+    return render_template('users.html', users=user_list)
