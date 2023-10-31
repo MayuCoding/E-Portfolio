@@ -1,6 +1,12 @@
 from application import app, db
 from flask import render_template
 
+with app.app_context():
+    from application.models import User, Admin, create_test_data
+    from application import db
+
+    if not db.inspect(db.engine).has_table(db.engine, "user"):
+        db.create_all()
 
 @app.route('/')
 def home():
@@ -24,12 +30,25 @@ def games():
     """
     return render_template('games.html')
 
+@app.route('/register')
+def register():
+    """
+    Route for the register page.
+    """
+    return render_template('register.html')
+
+@app.route('/signin')
+def signin():
+    """
+    Route for the signin page.
+    """
+    return render_template('signin.html')
+
 @app.route('/users')
 def users():
     """
     Route for the users page.
     """
+    users_list = db.session.execute(db.select(User).order_by(User.id)).scalars().all()
 
-    user_list = db.session.execute(db.select(User).order_by(User.id)).scalars().all()
-
-    return render_template('users.html', users=user_list)
+    return render_template('users.html', users=users_list)

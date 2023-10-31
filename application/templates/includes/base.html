@@ -16,6 +16,10 @@
         <div class="w-lg-75 mx-2 mx-lg-auto position-relative z-2 px-lg-3 py-0 shadow-5 bg-primary">
             <nav class="navbar navbar-expand-lg navbar-dark p-0" id="navbar">
                 <div class="container px-sm-0">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
                     <!-- Logo START -->
                     <a class="navbar-brand d-inline-block w-lg-64" href="{{ url_for('home') }}">
                         <img src="https://cdn.pixabay.com/photo/2016/12/01/18/15/hourglass-1875812_1280.jpg"
@@ -41,7 +45,14 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link border-bottom rounded-pill btn btn-outline-dark"
-                                    href="{{ url_for('home') }}">
+                                    href="{{ url_for('teatalk') }}">
+                                    <i class="bi bi-cup-hot-fill"></i>
+                                    Tea talk
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link border-bottom rounded-pill btn btn-outline-dark"
+                                    href="{{ url_for('users') }}">
                                     Users
                                 </a>
                             </li>
@@ -55,10 +66,10 @@
                         <!-- SignIn and Register Buttons START -->
                         <div class="navbar-nav align-items-lg-center justify-content-end gap-2 ms-lg-4 w-lg-64">
                             <a class="btn btn-sm btn-warning bg-success-hover border-0 rounded-pill w-100 w-lg-auto mb-4 mb-lg-0"
-                                href="{{ url_for('home') }}">
+                                href="{{ url_for('signin') }}">
                                 Sign in
                             </a>
-                            <a href="{{ url_for('home') }}"
+                            <a href="{{ url_for('register') }}"
                                 class="btn btn-sm btn-info bg-primary-hover border-0 rounded-pill w-100 w-lg-auto mb-4 mb-lg-0">
                                 Register
                             </a>

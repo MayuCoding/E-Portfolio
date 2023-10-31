@@ -1,0 +1,27 @@
+{% extends "./includes/base.html" %}
+
+<!-- Page title -->
+{% block title %}
+Tea Talk || My App
+{% endblock %}
+
+<!-- Page Greeting -->
+{% block page_greeting %}
+Choose your time for a very fun tea talk!!!!
+{% endblock %}
+
+<!-- Page Message -->
+{% block page_message%}
+This is where you can learn new stuff or maybe teach me new stuff and have some fun talk together!!!
+{%endblock%}
+
+
+<!-- Page Content -->
+{% block content %}
+
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/tea_talk/snacks?primary_color=146be8" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+{% endblock %}
+

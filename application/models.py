@@ -39,4 +39,44 @@ class Admin(User):
     
     def __str__(self) -> str:
         return f"User<{self.username}, {self.email}, {self.admin_status}"
+
+
+def create_test_data(database):
+    """
+    Used to create test data in database.
+    """
+    # Admin User
+    admin = User(username = "admin", email="admin@admin.mail", password = "admin", admin_status=True)
+
+    # Other users
+    user1 = User(username = "user1", email="user1@user1.mail", password = "admin", admin_status=True)
+    user2 = User(username = "user2", email="Huh@questionmark.mail", password = "admin", admin_status=True)
+    user3 = User(username = "user3", email="person@painter.mail", password = "admin", admin_status=True)
+    user4 = User(username = "user4", email="LOL@userblah.mail", password = "admin", admin_status=True)
+    user5 = User(username = "user5", email="friend@youandI.mail", password = "admin", admin_status=True)
+    user6 = User(username = "user6", email="user6@another.mail", password = "admin", admin_status=True)
+
+    existing_users = User.query.all()
+    existing_user_emails = [user.email for user in existing_users]
+
+    # Add the admin user 
+    if admin not in existing_users and admin.email not in existing_user_emails:
+        database.session.add(admin)
         
+    # Add teh other users
+    if user1 not in existing_users and user1.email not in existing_user_emails:
+        database.session.add(user1)
+    if user2 not in existing_users and user2.email not in existing_user_emails:
+        database.session.add(user2)
+    if user3 not in existing_users and user3.email not in existing_user_emails:
+        database.session.add(user3)
+    if user4 not in existing_users and user4.email not in existing_user_emails:
+        database.session.add(user4)
+    if user5 not in existing_users and user5.email not in existing_user_emails:
+        database.session.add(user5)
+    if user6 not in existing_users and user6.email not in existing_user_emails:
+        database.session.add(user6)
+
+    # Commit the changes to the database
+
+    database.session.commit()
