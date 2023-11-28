@@ -7,6 +7,8 @@ with app.app_context():
 
     if not db.inspect(db.engine).has_table(db.engine, "user"):
         db.create_all()
+        create_test_data(db)
+        
 
 @app.route('/')
 def home():
@@ -52,3 +54,20 @@ def users():
     users_list = db.session.execute(db.select(User).order_by(User.id)).scalars().all()
 
     return render_template('users.html', users=users_list)
+
+@app.route('/users/<int:user_id>')
+def user(user_id):
+    """
+    Route for the user page.
+    """
+    user = db.session.execute(db.select(User).filter(User.id == user_id)).scalars().first()
+
+    return render_template('user.html', user=user)
+
+@app.route('/teatalk')
+def teatalk():
+    """
+    Routes for a tea talk.
+    """
+
+    return render_template("teatalk.html")

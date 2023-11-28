@@ -21,12 +21,30 @@ Welcome to my little world mini Users
 <div class="container">
     <h1>Users</h1>
     <div class="d-flex justify-content-center flex-wrap">
-        <!-- Display users here -->
         {% for user in users %}
-            <h3 class = "card-title">{{user.username }}</h3>
-            <h5 class = "card-title"> {{ user.email }}</h5>
-        {%endfor%}
-
+        <div class="card mb-3 mx-2" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://img.freepik.com/free-photo/closeup-shot-miniature-figurines-students-approaching-man-holding-balloons_181624-43529.jpg?w=1480&t=st=1699960886~exp=1699961486~hmac=ba951ce0bd7413b3079e6784796ebbb026325cc29faed5040ab495e3c7508411" class="img-fluid rounded-start"
+                        alt="Just an image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ user.username }}</h3>
+                        <h5 class="card-title">{{ user.email }}</h5>
+                        <p class="card-text">
+                            {{ user.about_me | truncate(100) }}
+                        </p>
+                        <p class="card-text">
+                            <small class="text-body-secondary">
+                                {{ user.last_seen }}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
