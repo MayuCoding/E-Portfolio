@@ -18,5 +18,76 @@ This is where you can find all the information about me working on this projecty
 
 <!-- Page Content -->
 {% block content %}
-<h2>About Me</h2>
+    <div class="row">
+        <!-- Single Card START -->
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Projects</h5>
+                <p class="card-text">
+                    This page shows my totally fantastic projects so you MUST check them out! YOU MUST!
+                </p>
+                <a href="{{url_for('projects')  }}" class="btn btn-primary">View, YOU MUST</a>
+                </div>
+            </div>
+        </div>
+        <!-- Single Card END -->
+        
+        <!-- Single Card START -->
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chats</h5>
+                    <p class="card-text">
+                        Make a nice private session with your friends using this website! It's 100% private but still be carefull what you type !
+                    </p>
+                    <a href="{{ url_for('chat') }}" class="btn btn-primary">Becareful of what you type click on me!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Single Card END -->
+        
+        <!-- Single Card START -->
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Tea talks</h5>
+                <p class="card-text">
+                    Do you want to have a nice relaxed teatalk come and feel free to schedule your tea talk! And if you would not like to show your face it is super ok because you will get a google meet link ! DO NOT JUST SCHEDULE AND RUN AWAY!
+                </p>
+                <a href="{{ url_for('teatalk') }}" class="btn btn-primary">schedule</a>
+                </div>
+            </div>
+        </div>
+        <!-- Single Card END -->
+
+        <!-- Single Card START -->
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">
+                        Some random users say hi! and bye! and go to another page!
+                    </p>
+                    <a href="{{ url_for('users') }}" class="btn btn-primary">Go to the most boring page of this website</a>
+                </div>
+            </div>
+        </div>
+        <!-- Single Card END -->
+
+        <!-- Single Card START -->
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Games</h5>
+                    <p class="card-text">
+                        You must have to download the games from my gityhubby (Github) to play some absolutely fantastic games and share them to your friends by saying its fantastic and it's the most best game in the world OK?
+                    </p>
+                    <a href="{{ url_for('games') }}" class="btn btn-primary">Share it to your friends promise? click on me!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Single Card END -->
+
+    </div>
 {% endblock %}
