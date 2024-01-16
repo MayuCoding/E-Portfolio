@@ -1,0 +1,59 @@
+{% extends "./includes/base.html" %}
+
+{% block title %}
+Games || My App
+{% endblock %}
+
+{% block page_greeting %}
+Chats Login
+{% endblock %}
+
+{% block page_message%}
+Let's Chitty Chat
+{%endblock%}
+
+{% block content %}
+<form class="pt-3" method="post">
+    <h3>Enter The Chat Room</h3>
+    <hr/>
+
+    <div class="mb-3 pt-3">
+        
+        <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+
+                <!-- User Name START -->
+                <div class="mb-3">
+                    <label for="roomName" class="form-label">Your Name</label>
+                    {% if name %}
+                    <input class="form-control" type="text" placeholder="User Name" name="name" for="roomName" value="{{name}}" />
+                    {% else %}
+                    <input class="form-control" type="text" placeholder="User Name" name="name" for="roomName" />
+                    {% endif %}
+                </div>
+                <!-- User Name END -->
+
+                <!-- Room Code START -->
+                <div class="mb-3">
+                    <label for="roomCode" class="form-label">Room Code</label>
+                    <input class="form-control" type="text" placeholder="Room Code" name="code" for="roomCode" value="{{code}}" />
+                </div>
+                <!-- Room Code END -->
+                <span class="d-flex justify-content-end">
+                    <button class="btn btn-outline-primary" type="submit" name="join">Join a Room</button>
+                </span>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    <button type="submit" name="create" class="btn btn-outline-primary">Create a Room</button>
+    {% if error and name == None %}
+    <ul class="list-group my-3">
+        <li class="list-group-item text-danger">{{error}}</li>
+    </ul>
+    {% endif %}
+</form>
+
+{% endblock %}
