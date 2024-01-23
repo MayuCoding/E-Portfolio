@@ -18,13 +18,15 @@ def generate_unique_code(length):
         if code not in rooms:
             return code
 
-with app.app_context():
-    from application.models import User, Admin, create_test_data
-    from application import db
+@app.before_request
+def create_records():
+    with app.app_context():
+        from application.models import User, Admin, create_test_data
+        from application import db
 
-    if not db.inspect(db.engine).has_table(db.engine, "user"):
-        db.create_all()
-        create_test_data(db)
+        if not db.inspect(db.engine).has_table(db.engine, "user"):
+            db.create_all()
+            create_test_data(db)
         
 
 @app.route('/')
