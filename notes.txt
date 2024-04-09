@@ -1,0 +1,9 @@
+{#
+            {% if True %}
+          <img src="{{url_for('static', filename=project['demo'])}}" class="card-img-top" alt="...">
+          {% else %}
+          <video class="card-img-top">
+            <source src="{{url_for('static', filename=project['demo'])}}">
+          </video>
+          {% endif %} 
+          #}

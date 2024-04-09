@@ -19,12 +19,19 @@ This is where you can find all the information about me working on this projecty
 <!-- Page Content -->
 {% block content %}
 <h2>Projects</h2>
-<div class="card" style="width: 18rem;">
-    <img src="{{url_for('static', filename='tic_tac.png')}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Tic Tac Toes</h5>
-      <p class="card-text">TKinter-based tic tac toe game!!:|</p>
-      <a href="https://github.com/MayuCoding/TicTacToe" class="btn btn-primary">Play it</a>
-    </div>
+<div class="container" >
+  <div class="row" >
+      {% for project in my_projects %}
+        <div class="card m-2" style="width: 18rem;">
+          <img src="{{url_for('static', filename=project['demo'])}}" class="card-img-top" alt="...">
+          
+          <div class="card-body">
+            <h5 class="card-title">{{project['name']}}</h5>
+            <p class="card-text">{{project['description']}}</p>
+            <a href="{{project['github']}}" class="btn btn-primary">Play it</a>
+          </div>
+        </div>
+      {%endfor%}
   </div>
+</div>
 {% endblock %}

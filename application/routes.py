@@ -42,7 +42,28 @@ def projects():
     """
     Route for the projects page.
     """
-    return render_template('projects.html')
+    my_projects = [
+        {
+            "name":"Tic Tac Toe",
+            "description":"TKinter-based tic tac toe game!!",
+            "demo":"tic_tac.png",
+            "github":"https://github.com/MayuCoding/TicTacToe"
+        },
+        {
+            "name":"Geometry Dash",
+            "description":"Geometry Dash done in tkinter",
+            "demo":"Geometry.png",
+            "github":"https://github.com/MayuCoding/Geometry-Dash"
+        },
+        {
+            "name":"Happy Birthday card",
+            "description":"Happy Birthday card done in tkinter",
+            "demo":"birthday.png",
+            "github":"https://github.com/MayuCoding/Birthday-card"
+        }
+    ]
+    return render_template('projects.html', my_projects = my_projects)
+    
 
 @app.route('/games')
 def games():
