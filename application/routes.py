@@ -245,4 +245,4 @@ def disconnect():
 
 # # Start the Flask App with SocketIO
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=False)
